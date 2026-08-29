@@ -1,0 +1,53 @@
+export const profile = {
+  name: "Lasith Undulanga",
+  title: "Software Engineering Intern | Full-Stack Developer",
+  bio: "IT undergraduate at the University of Moratuwa with hands-on experience building scalable full-stack web applications using Next.js, NestJS, Spring Boot, and PostgreSQL. Skilled in designing concurrency-safe systems, RESTful APIs, and cloud-native infrastructure with Docker, AWS CDK, and CI/CD pipelines.",
+  location: "Sri Lanka",
+  email: "ludulanga@gmail.com",
+  phone: "+94 77 649 5501",
+  github: "https://github.com/lasith2003",
+  linkedin: "https://www.linkedin.com/in/lasith-undulanga",
+  resumeUrl: "/resume.pdf",
+  photoUrl: "/profile.jpeg",
+  education: [
+    {
+      degree: "B.Sc. (Hons) in Information Technology and Management",
+      institution: "University of Moratuwa",
+      period: "2024 – Present",
+      note: "CGPA: 3.75/4.00 · Dean's List – Semester 1",
+      stream: "IT & Management",
+    },
+    {
+      degree: "G.C.E. Advanced Level",
+      institution: "Rajapaksha Central College",
+      period: "2022",
+      note: "Physics (C), Chemistry (B), Biology (C) · Z-score: 1.105",
+      stream: "Biological Science",
+    },
+    {
+      degree: "G.C.E. Ordinary Level",
+      institution: "Rajapaksha Central College",
+      period: "2018",
+      note: "A8 · B1 (8 Distinctions, 1 Very Good Pass)",
+      stream: "General",
+    },
+  ],
+  stats: [
+    { label: "GPA", value: 3.75, suffix: "/4.0", decimals: 2 },
+    { label: "Projects Built", value: 4, suffix: "+", decimals: 0 },
+    { label: "Technologies", value: 20, suffix: "+", decimals: 0 },
+  ],
+  leadership: [
+    "Third-Year Batch Representative — Faculty of IT, University of Moratuwa",
+    "Designer — IEEE Communications Society Student Branch Chapter, UOM",
+    "Designer — IET, University of Moratuwa",
+    "Member — IES Lab, University of Moratuwa",
+    "Member — Rotaract Club of University of Moratuwa",
+  ],
+  certifications: [
+    { name: "AWS Cloud Practitioner Essentials", issuer: "AWS" },
+    { name: "SQL and Relational Databases 101", issuer: "IBM", date: "Mar 2025" },
+    { name: "Python for Beginners", issuer: "University of Moratuwa", date: "Apr 2024" },
+    { name: "Web Design for Beginners", issuer: "University of Moratuwa", date: "Apr 2024" },
+  ],
+};
