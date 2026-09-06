@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, MapPin, Award, Users, BookOpen, School } from "lucide-react";
+import { GraduationCap, MapPin, Award, Users, BookOpen, School, Sparkles, CheckCircle2, ShieldCheck, Briefcase } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { profile } from "@/data/profile";
 import { useEffect, useRef, useState } from "react";
@@ -8,14 +8,23 @@ import { useEffect, useRef, useState } from "react";
 function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
       { threshold: 0.15 }
     );
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
   return { ref, visible };
 }
 
@@ -26,18 +35,21 @@ export function About() {
   const certs = useScrollReveal();
 
   return (
-    <section id="about" className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-radial from-accent/3 via-transparent to-transparent pointer-events-none" />
+    <section id="about" className="py-24 md:py-32 relative overflow-hidden bg-[#070912]">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container-width section-padding relative z-10">
         <SectionHeading
           number="01"
           title="About Me"
-          subtitle="A little about who I am, where I come from, and what drives me."
+          subtitle="A snapshot of my background, academic excellence, leadership experience, and verified certifications."
         />
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Bio */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          
+          {/* Left Column (5 cols) — Bio & Highlights */}
           <div
             ref={bio.ref}
             style={{
@@ -45,34 +57,54 @@ export function About() {
               transform: bio.visible ? "translateY(0)" : "translateY(30px)",
               transition: "opacity 0.6s ease, transform 0.6s ease",
             }}
+            className="lg:col-span-5 flex flex-col gap-6"
           >
-            <p className="text-text-secondary leading-relaxed text-base md:text-lg mb-6">
-              I&apos;m an{" "}
-              <span className="text-text-primary font-semibold">IT undergraduate at the University of Moratuwa</span>
-              {" "}with a passion for building scalable, production-quality software. I specialize in
-              full-stack development with{" "}
-              <span className="text-accent-light font-medium">Next.js, NestJS, and Spring Boot</span>.
-            </p>
-            <p className="text-text-secondary leading-relaxed text-base md:text-lg mb-6">
-              I enjoy solving complex engineering challenges — from{" "}
-              <span className="text-text-primary font-medium">concurrency-safe systems</span> and
-              event-driven architectures to deploying cloud-native infrastructure with{" "}
-              <span className="text-accent-light font-medium">Docker, AWS CDK</span>, and CI/CD pipelines.
-            </p>
-            <p className="text-text-secondary leading-relaxed text-base md:text-lg mb-8">
-              Currently seeking a{" "}
-              <span className="text-text-primary font-semibold">Software Engineering Internship</span>
-              {" "}to apply my skills to real-world projects and grow alongside a great engineering team.
-            </p>
-            <div className="flex items-center gap-2 text-text-muted">
-              <MapPin size={16} className="text-accent" />
-              <span className="text-sm">{profile.location} · Open to Remote</span>
+            <div className="p-7 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <Sparkles size={18} className="text-indigo-400" />
+                Engineering Philosophy
+              </h3>
+              <p className="text-slate-300 leading-relaxed text-sm md:text-base mb-4 font-normal">
+                I&apos;m an <strong className="text-white font-semibold">IT undergraduate at the University of Moratuwa</strong> with a strong focus on building scalable full-stack web applications and robust distributed systems.
+              </p>
+              <p className="text-slate-300 leading-relaxed text-sm md:text-base mb-4 font-normal">
+                My hands-on experience includes developing <span className="text-indigo-300 font-medium">concurrency-safe transaction engines</span>, enterprise laboratory workflows with <span className="text-cyan-300 font-medium">Spring Boot &amp; Kafka</span>, and containerized cloud pipelines using <span className="text-indigo-300 font-medium">Docker &amp; AWS CDK</span>.
+              </p>
+              <p className="text-slate-300 leading-relaxed text-sm md:text-base mb-6 font-normal">
+                Currently seeking a <span className="text-white font-semibold">Software Engineering Internship</span> where I can apply my engineering skills to impactful enterprise applications.
+              </p>
+
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                <div className="flex items-center gap-2">
+                  <MapPin size={15} className="text-indigo-400" />
+                  <span>{profile.location} · Open to Remote</span>
+                </div>
+                <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Ready to Join
+                </span>
+              </div>
+            </div>
+
+            {/* Quick Summary Highlights */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md">
+                <p className="text-[11px] font-bold text-indigo-400 uppercase tracking-wider mb-1">Academic Standing</p>
+                <p className="text-base font-bold text-white">Dean&apos;s List</p>
+                <p className="text-xs text-slate-400 mt-0.5">CGPA 3.73 / 4.00</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md">
+                <p className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-1">Primary Track</p>
+                <p className="text-base font-bold text-white">Full-Stack Dev</p>
+                <p className="text-xs text-slate-400 mt-0.5">Next.js &amp; Spring Boot</p>
+              </div>
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="flex flex-col gap-6">
-            {/* Education Timeline */}
+          {/* Right Column (7 cols) — Education, Leadership, & Certifications */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            
+            {/* 1. Education Timeline Card */}
             <div
               ref={edu.ref}
               style={{
@@ -80,71 +112,69 @@ export function About() {
                 transform: edu.visible ? "translateY(0)" : "translateY(30px)",
                 transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s",
               }}
-              className="p-6 rounded-2xl bg-surface-2 border border-border"
+              className="p-6 md:p-7 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-xl bg-accent/10">
-                  <GraduationCap size={18} className="text-accent" />
+                <div className="p-2 rounded-xl bg-indigo-500/15 border border-indigo-500/30 text-indigo-400">
+                  <GraduationCap size={20} />
                 </div>
-                <h3 className="font-bold text-text-primary">Education</h3>
+                <div>
+                  <h3 className="font-bold text-white text-base md:text-lg">Education History</h3>
+                  <p className="text-xs text-slate-400">Academic milestones and performance</p>
+                </div>
               </div>
 
-              <div className="relative pl-6 border-l border-accent/20 space-y-6">
-                {/* 1. University of Moratuwa */}
-                <div className="relative">
-                  <div className="absolute -left-[25px] top-1 w-4 h-4 rounded-full border-2 border-accent bg-background flex items-center justify-center shadow-accent-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-slow" />
+              <div className="relative pl-6 border-l border-indigo-500/25 space-y-6">
+                
+                {/* University of Moratuwa */}
+                <div className="relative group">
+                  <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-indigo-500 bg-[#070912] flex items-center justify-center shadow-[0_0_10px_rgba(99,102,241,0.5)]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
                   </div>
-                  <p className="text-xs font-mono text-accent mb-1">2024 – Present</p>
-                  <p className="font-bold text-text-primary text-sm">B.Sc. (Hons) in Information Technology & Management</p>
-                  <p className="text-accent-light text-sm mt-0.5">University of Moratuwa, Sri Lanka</p>
-                  <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-semibold text-amber-400 bg-amber-500/10 border-amber-500/20">
-                    <Award size={11} />
-                    Dean&apos;s List (Semester 1) · CGPA 3.75 / 4.00
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs font-mono font-semibold text-indigo-400">2024 – Present</span>
+                    <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                      Dean&apos;s List (Sem 1) · CGPA 3.73 / 4.00
+                    </span>
                   </div>
+                  <p className="font-bold text-white text-sm md:text-base mt-1">B.Sc. (Hons) in Information Technology &amp; Management</p>
+                  <p className="text-xs text-slate-400 mt-0.5">Faculty of Information Technology, University of Moratuwa</p>
                 </div>
 
-                {/* 2. G.C.E. Advanced Level */}
+                {/* G.C.E. Advanced Level */}
                 <div className="relative">
-                  <div className="absolute -left-[25px] top-1 w-4 h-4 rounded-full border-2 border-accent/50 bg-background flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent/60" />
+                  <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-indigo-500/50 bg-[#070912] flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-400/60" />
                   </div>
-                  <p className="text-xs font-mono text-accent/70 mb-1">2022</p>
-                  <p className="font-bold text-text-primary text-sm">G.C.E. Advanced Level</p>
-                  <p className="text-text-secondary text-sm mt-0.5">Rajapaksha Central College</p>
-                  <div className="mt-2.5 flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full border text-xs font-medium text-emerald-400 bg-emerald-500/10 border-emerald-500/20">
-                      <BookOpen size={10} />
-                      Biological Science Stream
-                    </span>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full border text-xs font-medium text-cyan-accent bg-cyan-accent/10 border-cyan-accent/20 font-mono">
-                      Physics (C) · Chem (B) · Bio (C)
-                    </span>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full border text-xs font-medium text-text-muted bg-surface border-border">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs font-mono font-semibold text-slate-400">2022</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
                       Z-score: 1.105
                     </span>
                   </div>
+                  <p className="font-bold text-white text-sm mt-1">G.C.E. Advanced Level — Biological Science Stream</p>
+                  <p className="text-xs text-slate-400 mt-0.5">Rajapaksha Central College · Physics (C), Chemistry (B), Biology (C)</p>
                 </div>
 
-                {/* 3. G.C.E. Ordinary Level */}
+                {/* G.C.E. Ordinary Level */}
                 <div className="relative">
-                  <div className="absolute -left-[25px] top-1 w-4 h-4 rounded-full border-2 border-accent/40 bg-background flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+                  <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-indigo-500/40 bg-[#070912] flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-400/40" />
                   </div>
-                  <p className="text-xs font-mono text-accent/60 mb-1">2018</p>
-                  <p className="font-bold text-text-primary text-sm">G.C.E. Ordinary Level</p>
-                  <p className="text-text-secondary text-sm mt-0.5">Rajapaksha Central College</p>
-                  <div className="mt-2.5 flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full border text-xs font-semibold text-emerald-400 bg-emerald-500/10 border-emerald-500/20">
-                      <School size={10} />
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs font-mono font-semibold text-slate-400">2018</span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
                       8 A&apos;s · 1 B (A8 · B1)
                     </span>
                   </div>
+                  <p className="font-bold text-white text-sm mt-1">G.C.E. Ordinary Level</p>
+                  <p className="text-xs text-slate-400 mt-0.5">Rajapaksha Central College</p>
                 </div>
+
               </div>
             </div>
 
-            {/* Leadership */}
+            {/* 2. Leadership & Extracurriculars */}
             <div
               ref={leadership.ref}
               style={{
@@ -152,27 +182,38 @@ export function About() {
                 transform: leadership.visible ? "translateY(0)" : "translateY(30px)",
                 transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s",
               }}
-              className="p-6 rounded-2xl bg-surface-2 border border-border"
+              className="p-6 md:p-7 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]"
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="p-2 rounded-xl bg-accent/10">
-                  <Users size={18} className="text-accent" />
+                <div className="p-2 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+                  <Users size={20} />
                 </div>
-                <h3 className="font-bold text-text-primary">Leadership & Activities</h3>
+                <div>
+                  <h3 className="font-bold text-white text-base md:text-lg">Leadership &amp; Community Roles</h3>
+                  <p className="text-xs text-slate-400">Active university leadership and society engagements</p>
+                </div>
               </div>
-              <div className="relative pl-6 border-l border-accent/20 space-y-4">
-                {profile.leadership.map((item, i) => (
-                  <div key={i} className="relative">
-                    <div className="absolute -left-[25px] top-1.5 w-3 h-3 rounded-full border border-accent/50 bg-surface-2 flex items-center justify-center">
-                      <div className="w-1 h-1 rounded-full bg-accent/60" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {profile.leadership.map((role, i) => (
+                  <div
+                    key={i}
+                    className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-indigo-500/30 hover:bg-white/[0.05] transition-all flex items-start gap-3 group"
+                  >
+                    <div className="w-6 h-6 rounded-lg bg-indigo-600/15 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                      <Briefcase size={12} />
                     </div>
-                    <p className="text-sm text-text-secondary">{item}</p>
+                    <div>
+                      <p className="text-xs md:text-sm font-semibold text-slate-200 group-hover:text-white leading-snug">
+                        {role}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Certifications */}
+            {/* 3. Certifications & Courses */}
             <div
               ref={certs.ref}
               style={{
@@ -180,26 +221,43 @@ export function About() {
                 transform: certs.visible ? "translateY(0)" : "translateY(30px)",
                 transition: "opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s",
               }}
-              className="p-6 rounded-2xl bg-surface-2 border border-border"
+              className="p-6 md:p-7 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-xl bg-accent/10">
-                  <Award size={18} className="text-accent" />
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-2 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400">
+                  <Award size={20} />
                 </div>
-                <h3 className="font-bold text-text-primary">Certifications</h3>
+                <div>
+                  <h3 className="font-bold text-white text-base md:text-lg">Verified Certifications</h3>
+                  <p className="text-xs text-slate-400">Industry &amp; Academic credentials</p>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {profile.certifications.map((cert) => (
-                  <div key={cert.name}
-                    className="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs font-medium text-text-secondary hover:text-text-primary hover:border-accent/30 transition-all cursor-default group"
-                    title={`${cert.issuer}${cert.date ? ` · ${cert.date}` : ""}`}>
-                    {cert.name}
-                    <span className="ml-1 text-text-muted group-hover:text-text-secondary transition-colors">· {cert.issuer}</span>
+                  <div
+                    key={cert.name}
+                    className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-cyan-500/30 hover:bg-white/[0.05] transition-all flex flex-col justify-between group"
+                  >
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <p className="text-xs md:text-sm font-semibold text-slate-200 group-hover:text-white leading-snug">
+                        {cert.name}
+                      </p>
+                      <ShieldCheck size={14} className="text-cyan-400 shrink-0 mt-0.5" />
+                    </div>
+                    <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono pt-1">
+                      <span className="text-cyan-300 font-medium px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                        {cert.issuer}
+                      </span>
+                      {cert.date && <span>{cert.date}</span>}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
+
           </div>
+
         </div>
       </div>
     </section>

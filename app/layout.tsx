@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lasith Undulanga — Software Engineering Intern | Full-Stack Developer",
+  title: "Lasith Undulanga",
   description:
     "IT undergraduate at the University of Moratuwa. Building scalable full-stack web applications with Next.js, NestJS, Spring Boot, and PostgreSQL. Currently seeking a Software Engineering internship.",
   keywords: [

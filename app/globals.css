@@ -134,4 +134,67 @@
     pointer-events: none;
     z-index: 0;
   }
+
+  /* Hologram Scanline Effect */
+  @keyframes scanline {
+    0% {
+      top: -20%;
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.8;
+    }
+    85% {
+      opacity: 0.8;
+    }
+    100% {
+      top: 120%;
+      opacity: 0;
+    }
+  }
+
+  .animate-scanline {
+    animation: scanline 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  /* 3D Floating Animations */
+  @keyframes floatSlow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(0.5deg);
+    }
+  }
+
+  @keyframes floatDelayed {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(8px) rotate(-0.5deg);
+    }
+  }
+
+  @keyframes avatarBreathe {
+    0%, 100% {
+      transform: scale(1) translateY(0px);
+    }
+    50% {
+      transform: scale(1.025) translateY(-4px);
+    }
+  }
+
+  .animate-float-slow {
+    animation: floatSlow 5s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: floatDelayed 5.5s ease-in-out infinite 0.8s;
+  }
+
+  .animate-avatar-breathe {
+    animation: avatarBreathe 6s ease-in-out infinite;
+  }
 }
+

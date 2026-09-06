@@ -30,7 +30,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/lasith2003/sports-court-booking-system",
     demo: null,
-    status: "Ongoing",
+    status: "Completed",
     highlight: "Concurrency-safe booking engine (DB transactions + row-level locking)",
     featured: true,
     image: "/projects/courthub.jpg",

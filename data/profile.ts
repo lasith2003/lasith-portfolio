@@ -8,13 +8,13 @@ export const profile = {
   github: "https://github.com/lasith2003",
   linkedin: "https://www.linkedin.com/in/lasith-undulanga",
   resumeUrl: "/resume.pdf",
-  photoUrl: "/profile.jpeg",
+  photoUrl: "/avatar.jpg",
   education: [
     {
       degree: "B.Sc. (Hons) in Information Technology and Management",
       institution: "University of Moratuwa",
       period: "2024 – Present",
-      note: "CGPA: 3.75/4.00 · Dean's List – Semester 1",
+      note: "CGPA: 3.73/4.00 · Dean's List – Semester 1",
       stream: "IT & Management",
     },
     {
@@ -33,19 +33,20 @@ export const profile = {
     },
   ],
   stats: [
-    { label: "GPA", value: 3.75, suffix: "/4.0", decimals: 2 },
+    { label: "GPA", value: 3.73, suffix: "/4.0", decimals: 2 },
     { label: "Projects Built", value: 4, suffix: "+", decimals: 0 },
     { label: "Technologies", value: 20, suffix: "+", decimals: 0 },
   ],
   leadership: [
-    "Third-Year Batch Representative — Faculty of IT, University of Moratuwa",
-    "Designer — IEEE Communications Society Student Branch Chapter, UOM",
-    "Designer — IET, University of Moratuwa",
-    "Member — IES Lab, University of Moratuwa",
-    "Member — Rotaract Club of University of Moratuwa",
+    "Third-Year Batch Representative - Faculty of IT, University of Moratuwa",
+    "Designer - IEEE Communications Society Student Branch Chapter, UOM",
+    "Designer - IET, University of Moratuwa",
+    "Member - IES Lab, University of Moratuwa",
+    "Member - Rotaract Club of University of Moratuwa",
   ],
   certifications: [
-    { name: "AWS Cloud Practitioner Essentials", issuer: "AWS" },
+    { name: "Peritus Research Bootcamp — AI/ML & Data Science", issuer: "Peritus Research", date: "In Progress (Expected Feb 2027)" },
+    { name: "AWS Cloud Practitioner Essentials", issuer: "AWS", date: "2025" },
     { name: "SQL and Relational Databases 101", issuer: "IBM", date: "Mar 2025" },
     { name: "Python for Beginners", issuer: "University of Moratuwa", date: "Apr 2024" },
     { name: "Web Design for Beginners", issuer: "University of Moratuwa", date: "Apr 2024" },

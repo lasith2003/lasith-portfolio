@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Github, Linkedin, Phone, Copy, CheckCheck, Send, MapPin } from "lucide-react";
+import { Mail, Github, Linkedin, Phone, Copy, CheckCheck, Send, MapPin, type LucideIcon } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { profile } from "@/data/profile";
@@ -11,7 +11,7 @@ import { showToast } from "@/components/ui/Toast";
 function ContactCard({
   icon: Icon, label, value, href, copyable, external,
 }: {
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: LucideIcon;
   label: string; value: string; href: string; copyable?: boolean; external?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
