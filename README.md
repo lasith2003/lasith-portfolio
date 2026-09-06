@@ -5,12 +5,16 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Deployed on Netlify](https://img.shields.io/badge/Netlify-Live-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://lasith-undulanga.netlify.app)
+[![Deployed on Netlify](https://img.shields.io/badge/Netlify-Live-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://lasith-undulanga.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/⚡_Live_Demo-Visit_Portfolio-6366F1?style=for-the-badge)](https://lasith-undulanga.netlify.app/)
 
 <p align="center">
   <strong>Modern, Ultra-Fast & Interactive Full-Stack Developer Portfolio</strong><br>
-  Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and 3D Parallax Glassmorphism.
+  Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and 3D Parallax Glassmorphism.<br>
+  <br>
+  <a href="https://lasith-undulanga.netlify.app/">
+    <strong>🚀 Explore Live Portfolio at https://lasith-undulanga.netlify.app/</strong>
+  </a>
 </p>
 
 </div>
@@ -80,6 +84,7 @@ npm run start
 ## 👨‍💻 Author
 
 **Lasith Undulanga**
+- 🌐 Live Portfolio: [https://lasith-undulanga.netlify.app/](https://lasith-undulanga.netlify.app/)
 - 🎓 B.Sc. (Hons) in Information Technology & Management, University of Moratuwa
 - 🌐 GitHub: [@lasith2003](https://github.com/lasith2003)
 - 💼 LinkedIn: [lasith-undulanga](https://www.linkedin.com/in/lasith-undulanga-964067308)
