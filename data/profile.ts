@@ -14,7 +14,7 @@ export const profile = {
       degree: "B.Sc. (Hons) in Information Technology and Management",
       institution: "University of Moratuwa",
       period: "2024 – Present",
-      note: "CGPA: 3.73/4.00 · Dean's List – Semester 1",
+      note: "CGPA: 3.73/4.00",
       stream: "IT & Management",
     },
     {

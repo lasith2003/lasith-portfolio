@@ -18,7 +18,7 @@ const terminalLines = [
   { text: 'const lasith = {', delay: 0 },
   { text: '  role: "Full-Stack Developer",', delay: 200 },
   { text: '  university: "University of Moratuwa",', delay: 400 },
-  { text: '  gpa: 3.73, // Dean\'s List', delay: 600 },
+  { text: '  gpa: 3.73, // CGPA 3.73 / 4.00', delay: 600 },
   { text: '  stack: ["Next.js", "Spring Boot", "NestJS", "PostgreSQL"],', delay: 800 },
   { text: '  status: "Open to Internship Opportunities 🚀"', delay: 1000 },
   { text: '};', delay: 1200 },
@@ -163,12 +163,13 @@ function TerminalCard() {
   );
 }
 
-/* Interactive 3D Parallax Avatar Pod with Scanline & Depth */
+/* Interactive 3D Parallax Avatar Pod with Scanline & Real Photo Hover Reveal */
 function InteractiveAvatarCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
+  const [manualToggle, setManualToggle] = useState<"avatar" | "real">("avatar");
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -196,6 +197,9 @@ function InteractiveAvatarCard() {
     setIsHovered(true);
   }, []);
 
+  // Show real picture if hovered or manual toggle is active
+  const showRealPhoto = isHovered || manualToggle === "real";
+
   return (
     <div className="relative w-full flex flex-col items-center [perspective:1000px]">
       {/* Background Cyber Ambient Aura */}
@@ -207,6 +211,7 @@ function InteractiveAvatarCard() {
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={() => setManualToggle((prev) => (prev === "avatar" ? "real" : "avatar"))}
         style={{
           transform: isHovered
             ? `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale(1.025)`
@@ -231,28 +236,58 @@ function InteractiveAvatarCard() {
         <div className="absolute bottom-3.5 left-3.5 w-3.5 h-3.5 border-b-2 border-l-2 border-cyan-400 z-30 group-hover:scale-110 transition-transform" />
         <div className="absolute bottom-3.5 right-3.5 w-3.5 h-3.5 border-b-2 border-r-2 border-cyan-400 z-30 group-hover:scale-110 transition-transform" />
 
-        {/* Inner Avatar Image Frame */}
+        {/* Top Floating View Mode Hint Tag */}
+        <div className="absolute top-5 inset-x-6 flex items-center justify-center z-30 pointer-events-none">
+          <span className={`px-3 py-1 rounded-full text-[11px] font-mono font-medium backdrop-blur-xl border transition-all duration-300 flex items-center gap-1.5 shadow-lg ${
+            showRealPhoto
+              ? "bg-emerald-500/20 text-emerald-300 border-emerald-400/40 shadow-[0_0_15px_rgba(16,185,129,0.4)]"
+              : "bg-black/60 text-slate-300 border-white/15 opacity-80 group-hover:opacity-100"
+          }`}>
+            <span>{showRealPhoto ? "📷 Real Photo Active" : "✨ Hover to reveal Real Photo"}</span>
+          </span>
+        </div>
+
+        {/* Inner Image Frame Container */}
         <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#070a14]">
           
-          {/* Animated Avatar Image with Breathing & Micro-Motion */}
-          <div className="relative w-full h-full animate-avatar-breathe">
+          {/* Layer 1: Real Life Photo (Revealed on Hover/Click) */}
+          <div
+            className={`absolute inset-0 transition-all duration-700 ease-out ${
+              showRealPhoto ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+            }`}
+          >
             <Image
-              src="/avatar.jpg"
-              alt="Lasith Undulanga 3D Developer Avatar"
+              src="/profile.jpeg"
+              alt="Lasith Undulanga Real Photo"
               fill
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              className="object-cover object-center"
               priority
             />
           </div>
 
-          {/* Holographic Laser Scanline Beam Passing Over Avatar */}
+          {/* Layer 2: 3D Developer Avatar */}
+          <div
+            className={`absolute inset-0 transition-all duration-700 ease-out animate-avatar-breathe ${
+              showRealPhoto ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
+            }`}
+          >
+            <Image
+              src="/avatar.jpg"
+              alt="Lasith Undulanga 3D Developer Avatar"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+
+          {/* Holographic Laser Scanline Beam Passing Over Image */}
           <div className="absolute inset-x-0 h-16 bg-gradient-to-b from-transparent via-cyan-400/25 to-transparent pointer-events-none animate-scanline z-20 shadow-[0_0_15px_rgba(34,211,238,0.5)]" />
 
           {/* Smooth Bottom Shadow Overlay */}
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#060913] via-[#060913]/70 to-transparent pointer-events-none z-10" />
 
           {/* Live Status Pill at Bottom of Avatar Box */}
-          <div className="absolute bottom-3 inset-x-3 flex items-center justify-between px-3.5 py-2 rounded-xl bg-[#090d1c]/80 backdrop-blur-xl border border-white/15 shadow-xl z-20 group-hover:border-indigo-500/40 transition-colors">
+          <div className="absolute bottom-3 inset-x-3 flex items-center justify-between px-3.5 py-2 rounded-xl bg-[#090d1c]/85 backdrop-blur-xl border border-white/15 shadow-xl z-20 group-hover:border-indigo-500/40 transition-colors">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -262,22 +297,22 @@ function InteractiveAvatarCard() {
             </div>
             <span className="text-[10px] text-cyan-300 font-mono font-medium px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center gap-1">
               <span className="w-1 h-1 rounded-full bg-cyan-400" />
-              Full-Stack Intern
+              {showRealPhoto ? "Real Profile" : "Full-Stack Intern"}
             </span>
           </div>
         </div>
       </div>
 
-      {/* Floating Interactive Orbit Badges (Floating Smoothly around Avatar) */}
+      {/* Floating Interactive Orbit Badges */}
       
-      {/* Top-Right Badge: Dean's List */}
+      {/* Top-Right Badge: CGPA 3.73 */}
       <div className="absolute -top-3.5 -right-2 md:-right-5 px-3.5 py-2 rounded-2xl bg-[#0e1224]/90 backdrop-blur-2xl border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.7),0_0_20px_rgba(99,102,241,0.35)] flex items-center gap-2.5 z-40 animate-float-slow hover:scale-105 transition-transform cursor-pointer">
         <div className="w-6 h-6 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center border border-indigo-500/30">
           <Sparkles size={13} className="animate-pulse" />
         </div>
         <div>
           <p className="text-[10px] text-slate-400 font-medium leading-none">UOM Undergrad</p>
-          <p className="text-xs font-extrabold text-white leading-tight mt-0.5">Dean&apos;s List · 3.73</p>
+          <p className="text-xs font-extrabold text-white leading-tight mt-0.5">CGPA · 3.73 / 4.0</p>
         </div>
       </div>
 

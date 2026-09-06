@@ -28,7 +28,7 @@
   3. **03. Smart Car-Parking & ANPR** — Computer vision license plate detection and IoT ESP32 display integration (Python, YOLO, OCR).
   4. **04. Blog Hut** — Full-featured web publishing platform with AJAX reaction engine (PHP 8, MySQL, Bootstrap).
   5. **05. Personal Developer Portfolio** — Interactive 3D engineering portfolio with real-time parallax shaders and cyber carousel (Next.js 14, TypeScript, Tailwind CSS).
-- 🎓 **Education & Leadership Timeline**: University of Moratuwa (B.Sc. Hons IT & Management, CGPA 3.73 Dean's List), A/L, and verified certifications.
+- 🎓 **Education & Leadership Timeline**: University of Moratuwa (B.Sc. Hons IT & Management, CGPA 3.73 / 4.00), A/L, and verified certifications.
 - 📬 **Interactive Contact Section**: Direct contact form and 1-click clipboard copy cards.
 - 📱 **100% Responsive & SEO Optimized**: Fluid layouts for mobile, tablet, and widescreen displays with custom glowing **LS** cyber logo favicon.
 
