@@ -88,7 +88,7 @@ export function Contact() {
         <SectionHeading
           number="04"
           title="Get In Touch"
-          subtitle="I'm actively seeking Software Engineering Internship opportunities. Whether you have an opening or a project to discuss — let's connect!"
+          subtitle="I'm actively seeking Software Engineering Internship opportunities. Whether you have an opening or a project to discuss - let's connect!"
           align="center"
         />
 
@@ -102,7 +102,7 @@ export function Contact() {
                 Let&apos;s Build Together
               </h3>
               <p className="text-xs md:text-sm text-slate-300 leading-relaxed font-normal mb-6">
-                Whether you&apos;re a recruiter, a fellow developer, or looking for a fast-learning full-stack intern with production experience — my inbox is always open. I&apos;ll do my best to get back to you promptly!
+                Whether you&apos;re a recruiter, a fellow developer, or looking for a fast-learning full-stack intern with production experience - my inbox is always open. I&apos;ll do my best to get back to you promptly!
               </p>
               
               <div className="flex items-center gap-2 text-xs text-slate-400 pt-4 border-t border-white/10">
@@ -225,7 +225,7 @@ export function Contact() {
               </Button>
 
               <p className="text-[11px] text-slate-400 text-center font-mono pt-1">
-                ⚡ Directly opens your email client pre-filled with the message.
+                Directly opens your email client pre-filled with the message.
               </p>
             </form>
           </div>
