@@ -22,14 +22,15 @@
 - 🔮 **Interactive 3D Developer Avatar Pod**: Real-time cursor-following 3D parallax tilt, dynamic light reflection, and continuous holographic laser scanline beam.
 - 🛸 **Floating Glassmorphic Capsule Navbar**: Sleek floating glass navigation pill with scroll spy indicator and gradient progress bar.
 - 🛠️ **3D Cyber Skills Matrix**: Categorized tech stack cards (Languages, Frontend, Backend & APIs, Databases, DevOps, Tools) with 3D perspective hover and brand icons.
-- 🔢 **01–04 Numbered Project Showcase**:
+- 🔢 **01–05 Interactive Cyber Carousel Project Showcase**:
   1. **01. Durdans Hospital LIMS** — Enterprise clinical laboratory management system (Java 21, Spring Boot 3.5, Kafka, Next.js).
   2. **02. CourtHub** — Concurrency-safe sports court booking platform (Next.js, NestJS, PostgreSQL, AWS CDK).
   3. **03. Smart Car-Parking & ANPR** — Computer vision license plate detection and IoT ESP32 display integration (Python, YOLO, OCR).
   4. **04. Blog Hut** — Full-featured web publishing platform with AJAX reaction engine (PHP 8, MySQL, Bootstrap).
+  5. **05. Personal Developer Portfolio** — Interactive 3D engineering portfolio with real-time parallax shaders and cyber carousel (Next.js 14, TypeScript, Tailwind CSS).
 - 🎓 **Education & Leadership Timeline**: University of Moratuwa (B.Sc. Hons IT & Management, CGPA 3.73 Dean's List), A/L, and verified certifications.
 - 📬 **Interactive Contact Section**: Direct contact form and 1-click clipboard copy cards.
-- 📱 **100% Responsive & SEO Optimized**: Fluid layouts for mobile, tablet, and widescreen displays.
+- 📱 **100% Responsive & SEO Optimized**: Fluid layouts for mobile, tablet, and widescreen displays with custom glowing **LS** cyber logo favicon.
 
 ---
 
@@ -81,7 +82,7 @@ npm run start
 **Lasith Undulanga**
 - 🎓 B.Sc. (Hons) in Information Technology & Management, University of Moratuwa
 - 🌐 GitHub: [@lasith2003](https://github.com/lasith2003)
-- 💼 LinkedIn: [lasith-undulanga](https://www.linkedin.com/in/lasith-undulanga)
+- 💼 LinkedIn: [lasith-undulanga](https://www.linkedin.com/in/lasith-undulanga-964067308)
 - 📧 Email: ludulanga@gmail.com
 
 ---
