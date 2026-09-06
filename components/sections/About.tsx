@@ -152,7 +152,7 @@ export function About() {
                       Z-score: 1.105
                     </span>
                   </div>
-                  <p className="font-bold text-white text-sm mt-1">G.C.E. Advanced Level — Biological Science Stream</p>
+                  <p className="font-bold text-white text-sm mt-1">G.C.E. Advanced Level - Biological Science Stream</p>
                   <p className="text-xs text-slate-400 mt-0.5">Rajapaksha Central College · Physics (C), Chemistry (B), Biology (C)</p>
                 </div>
 

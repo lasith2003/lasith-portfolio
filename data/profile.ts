@@ -6,7 +6,7 @@ export const profile = {
   email: "ludulanga@gmail.com",
   phone: "+94 77 649 5501",
   github: "https://github.com/lasith2003",
-  linkedin: "https://www.linkedin.com/in/lasith-undulanga",
+  linkedin: "https://www.linkedin.com/in/lasith-undulanga-964067308",
   resumeUrl: "/resume.pdf",
   photoUrl: "/avatar.jpg",
   education: [
@@ -45,7 +45,7 @@ export const profile = {
     "Member - Rotaract Club of University of Moratuwa",
   ],
   certifications: [
-    { name: "Peritus Research Bootcamp — AI/ML & Data Science", issuer: "Peritus Research", date: "In Progress (Expected Feb 2027)" },
+    { name: "Peritus Research Bootcamp - AI/ML & Data Science", issuer: "Peritus Research", date: "In Progress (Expected Feb 2027)" },
     { name: "AWS Cloud Practitioner Essentials", issuer: "AWS", date: "2025" },
     { name: "SQL and Relational Databases 101", issuer: "IBM", date: "Mar 2025" },
     { name: "Python for Beginners", issuer: "University of Moratuwa", date: "Apr 2024" },

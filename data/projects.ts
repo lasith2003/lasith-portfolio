@@ -1,45 +1,28 @@
 export type Project = {
   id: string;
+  number: string;
   name: string;
+  tagline: string;
   description: string;
   stack: string[];
   github: string;
   demo: string | null;
-  status: "In Progress" | "Ongoing" | "Completed";
+  status: "Completed" | "Featured";
   highlight?: string;
   featured: boolean;
   image?: string;
   note?: string;
+  academicContext?: string;
 };
 
 export const projects: Project[] = [
   {
-    id: "courthub",
-    name: "Multi-Vendor Sports Court Booking Platform",
-    description:
-      "Full-stack booking platform with role-based access control for Admin, Venue Owner, and Customer roles. Features a concurrency-safe booking engine preventing double-bookings via DB transactions and row-level locking, real-time venue/court management, and a secure payment and booking confirmation flow with automated notifications.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "NestJS",
-      "PostgreSQL",
-      "Prisma",
-      "Docker",
-      "AWS CDK",
-      "GitHub Actions",
-    ],
-    github: "https://github.com/lasith2003/sports-court-booking-system",
-    demo: null,
-    status: "Completed",
-    highlight: "Concurrency-safe booking engine (DB transactions + row-level locking)",
-    featured: true,
-    image: "/projects/courthub.jpg",
-  },
-  {
     id: "durdans-lims",
+    number: "01",
     name: "Durdans Hospital LIMS",
+    tagline: "Enterprise Laboratory Information Management System",
     description:
-      "Enterprise Laboratory Information Management System covering the full clinical-lab lifecycle. Co-developed on a Gradle multi-module Java 21 / Spring Boot backend with PostgreSQL, Kafka, and a Next.js frontend. Implemented the Technical Verification workflow, Clinical Authorization workflow, and the Report Dispatch & Delivery module.",
+      "Enterprise clinical laboratory information management system covering the complete lab testing lifecycle. Built on a Gradle multi-module Java 21 / Spring Boot 3.5 backend with Kafka event streaming and Next.js frontend. Implemented technical verification for lab technologists, clinical authorization for pathologists, and automated multi-channel report dispatch.",
     stack: [
       "Java 21",
       "Spring Boot 3.5",
@@ -53,17 +36,45 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/kalanas210/durdans-lims",
     demo: null,
-    status: "Completed",
-    highlight: "Event-driven architecture (Kafka) with full audit traceability",
+    status: "Featured",
+    highlight: "Event-driven architecture (Kafka) with full clinical audit traceability",
     featured: true,
     image: "/projects/durdans-lims.jpg",
-    note: "Team project — repo hosted under a teammate's GitHub account",
+    note: "Team project — repo hosted under teammate's GitHub account",
+    academicContext: "UOM 2nd-Year Group Project",
+  },
+  {
+    id: "courthub",
+    number: "02",
+    name: "CourtHub",
+    tagline: "Multi-Vendor Sports Court Booking Platform",
+    description:
+      "Full-stack sports booking platform engineered with a concurrency-safe booking engine that prevents double-bookings via PostgreSQL database transactions and row-level locking. Features role-based access control for Admins, Venue Owners, and Customers, real-time availability calendar, and automated booking notifications.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "Docker",
+      "AWS CDK",
+      "GitHub Actions",
+    ],
+    github: "https://github.com/lasith2003/sports-court-booking-system",
+    demo: null,
+    status: "Featured",
+    highlight: "Concurrency-safe slot engine (Row-Level Locking + DB Transactions) with AWS CDK IaC",
+    featured: true,
+    image: "/projects/courthub.jpg",
+    academicContext: "Individual Full-Stack Project",
   },
   {
     id: "anpr-parking",
-    name: "Vehicle Number-Plate Detection & Smart Car-Parking System",
+    number: "03",
+    name: "Smart Car-Parking & ANPR System",
+    tagline: "Computer Vision & IoT Automated Vehicle Parking",
     description:
-      "End-to-end vehicle number-plate recognition system (Roboflow-trained YOLO + EasyOCR) paired with a smart car-parking system featuring duration tracking, automated billing, and an admin dashboard for live occupancy and unauthorized-access alerts.",
+      "End-to-end automated smart parking system pairing Roboflow-trained YOLO object detection and EasyOCR for real-time license plate recognition. Features automated duration billing, occupancy tracking dashboard, unauthorized-access alerts, and physical IoT ESP32 P10 LED display integration.",
     stack: [
       "Python",
       "YOLO (Roboflow)",
@@ -72,32 +83,39 @@ export const projects: Project[] = [
       "Docker",
       "OpenAI",
       "ESP32",
+      "IoT",
     ],
     github: "https://github.com/kalanas210/anpr-ai-parking-system",
     demo: null,
     status: "Completed",
+    highlight: "YOLO Computer Vision model + IoT ESP32 real-time display hardware integration",
     featured: false,
     image: "/projects/anpr-parking.jpg",
-    note: "Team project — repo hosted under a teammate's GitHub account",
+    note: "Team project — repo hosted under teammate's GitHub account",
+    academicContext: "UOM 1st-Year Group Project",
   },
   {
     id: "blog-app",
-    name: "Blog Application",
+    number: "04",
+    name: "Blog Hut",
+    tagline: "Full-Featured PHP & MySQL Web Publishing Platform",
     description:
-      "A full-featured blog platform with Markdown-based rich text editing, user authentication, category tagging, comment system, and a responsive reading experience. Supports author profiles, draft management, and post publishing workflows.",
+      "Modern, maintainable web publishing platform built for the University of Moratuwa IN2120 module. Features secure user authentication with password recovery, rich post CRUD with image uploads, AJAX-powered instant comment and reaction engine, dynamic category search, and a comprehensive admin moderation panel.",
     stack: [
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "Prisma",
-      "Tailwind CSS",
+      "PHP 8",
+      "MySQL 8",
+      "JavaScript (ES6)",
+      "Bootstrap 5",
+      "HTML5",
+      "CSS3",
+      "Apache",
     ],
-    github: "https://github.com/lasith2003", // [PLACEHOLDER — update with actual repo link]
+    github: "https://github.com/lasith2003/blog-app",
     demo: null,
     status: "Completed",
-    highlight: "Markdown editor with live preview and draft management",
+    highlight: "AJAX-driven reaction & comment system with full role-based admin moderation",
     featured: false,
     image: "/projects/blog-app.jpg",
+    academicContext: "UOM IN2120 Web Programming Project",
   },
 ];

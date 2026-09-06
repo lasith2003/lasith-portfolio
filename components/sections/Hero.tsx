@@ -354,7 +354,7 @@ export function Hero() {
                     <span className="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-medium border border-indigo-500/30">Spring Boot 3.5 &amp; Java 21</span>
                   </div>
                   <p className="text-sm text-slate-300">
-                    <strong className="text-white font-semibold">Durdans Hospital LIMS</strong> — Enterprise Laboratory Information Management System covering clinical verification &amp; Kafka event auditing.
+                    <strong className="text-white font-semibold">Durdans Hospital LIMS</strong> - Enterprise Laboratory Information Management System covering clinical verification &amp; Kafka event auditing.
                   </p>
                 </div>
               </div>
