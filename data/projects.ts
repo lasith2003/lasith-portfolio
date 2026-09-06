@@ -118,4 +118,27 @@ export const projects: Project[] = [
     image: "/projects/blog-app.jpg",
     academicContext: "UOM IN2120 Web Programming Project",
   },
+  {
+    id: "portfolio-website",
+    number: "05",
+    name: "Personal Developer Portfolio",
+    tagline: "Interactive 3D Engineering Portfolio & System Showcase",
+    description:
+      "Modern, high-performance personal developer portfolio built with Next.js 14 App Router, TypeScript, and Tailwind CSS. Features an interactive 3D Pixar developer avatar with real-time cursor parallax tilt, holographic laser scanline animations, a 3D cyber skills matrix, and a floating glassmorphic capsule navbar.",
+    stack: [
+      "Next.js 14",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Lucide Icons",
+      "Netlify / Vercel",
+    ],
+    github: "https://github.com/lasith2003/lasith-portfolio",
+    demo: "https://lasith-undulanga.netlify.app",
+    status: "Completed",
+    highlight: "Interactive 3D Avatar with real-time cursor parallax tilt & holographic scanline shaders",
+    featured: false,
+    image: "/projects/portfolio-preview.jpg",
+    academicContext: "Personal Portfolio & Branding",
+  },
 ];

@@ -34,7 +34,7 @@ export const profile = {
   ],
   stats: [
     { label: "GPA", value: 3.73, suffix: "/4.0", decimals: 2 },
-    { label: "Projects Built", value: 4, suffix: "+", decimals: 0 },
+    { label: "Projects Built", value: 5, suffix: "+", decimals: 0 },
     { label: "Technologies", value: 20, suffix: "+", decimals: 0 },
   ],
   leadership: [

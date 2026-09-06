@@ -24,15 +24,18 @@ function useScrollReveal(delay = 0) {
   }};
 }
 
+function AnimatedProjectItem({ project, index }: { project: typeof projects[0]; index: number }) {
+  const reveal = useScrollReveal((index % 4) * 80);
+  return (
+    <div ref={reveal.ref} style={reveal.style} className="h-full">
+      <ProjectCard project={project} featured={project.featured} />
+    </div>
+  );
+}
+
 export function Projects() {
   const heading = useScrollReveal(0);
-  const card0 = useScrollReveal(0);
-  const card1 = useScrollReveal(100);
-  const card2 = useScrollReveal(150);
-  const card3 = useScrollReveal(200);
-  const cta = useScrollReveal(250);
-
-  const reveals = [card0, card1, card2, card3];
+  const cta = useScrollReveal(200);
 
   return (
     <section id="projects" className="py-24 md:py-32 relative overflow-hidden bg-[#060810]">
@@ -45,21 +48,14 @@ export function Projects() {
           <SectionHeading
             number="03"
             title="Featured Projects"
-            subtitle="Engineered systems spanning concurrency-safe web platforms, enterprise clinical LIMS, computer vision IoT, and full-stack web publishing."
+            subtitle="Engineered systems spanning enterprise clinical LIMS, concurrency-safe booking engines, computer vision IoT, and interactive 3D web applications."
           />
         </div>
 
-        {/* 01-04 Projects Grid — 2x2 Clean Responsive Grid */}
+        {/* 01-05 Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-14">
           {projects.map((project, i) => (
-            <div
-              key={project.id}
-              ref={reveals[i]?.ref}
-              style={reveals[i]?.style}
-              className="h-full"
-            >
-              <ProjectCard project={project} featured={project.featured} />
-            </div>
+            <AnimatedProjectItem key={project.id} project={project} index={i} />
           ))}
         </div>
 
