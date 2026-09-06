@@ -236,17 +236,6 @@ function InteractiveAvatarCard() {
         <div className="absolute bottom-3.5 left-3.5 w-3.5 h-3.5 border-b-2 border-l-2 border-cyan-400 z-30 group-hover:scale-110 transition-transform" />
         <div className="absolute bottom-3.5 right-3.5 w-3.5 h-3.5 border-b-2 border-r-2 border-cyan-400 z-30 group-hover:scale-110 transition-transform" />
 
-        {/* Top Floating View Mode Hint Tag */}
-        <div className="absolute top-5 inset-x-6 flex items-center justify-center z-30 pointer-events-none">
-          <span className={`px-3 py-1 rounded-full text-[11px] font-mono font-medium backdrop-blur-xl border transition-all duration-300 flex items-center gap-1.5 shadow-lg ${
-            showRealPhoto
-              ? "bg-emerald-500/20 text-emerald-300 border-emerald-400/40 shadow-[0_0_15px_rgba(16,185,129,0.4)]"
-              : "bg-black/60 text-slate-300 border-white/15 opacity-80 group-hover:opacity-100"
-          }`}>
-            <span>{showRealPhoto ? "📷 Real Photo Active" : "✨ Hover to reveal Real Photo"}</span>
-          </span>
-        </div>
-
         {/* Inner Image Frame Container */}
         <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#070a14]">
           
