@@ -38,6 +38,13 @@ export const metadata: Metadata = {
     description:
       "IT undergraduate at the University of Moratuwa building scalable full-stack web applications.",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
